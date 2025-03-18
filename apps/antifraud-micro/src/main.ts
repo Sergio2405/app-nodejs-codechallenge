@@ -15,11 +15,9 @@ async function bootstrap() {
           groupId: 'transaction-consumer',
         },
       },
-    }
+    },
   );
 
   await app.listen();
-
 }
 bootstrap();
-

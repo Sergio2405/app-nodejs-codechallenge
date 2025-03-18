@@ -14,7 +14,7 @@ import { Transaction } from './transaction.entity';
         transport: Transport.KAFKA,
         options: {
           client: {
-            clientId: "transaction",
+            clientId: 'transaction',
             brokers: [process.env.KAFKA_BROKER || 'localhost:9092'],
           },
           consumer: {
@@ -23,12 +23,9 @@ import { Transaction } from './transaction.entity';
         },
       },
     ]),
-    TypeOrmModule.forFeature([Transaction])
+    TypeOrmModule.forFeature([Transaction]),
   ],
   controllers: [TransactionController],
-  providers: [
-    TransactionService, 
-    TransactionResolver
-  ],
+  providers: [TransactionService, TransactionResolver],
 })
 export class TransactionModule {}

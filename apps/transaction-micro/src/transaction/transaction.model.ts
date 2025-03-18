@@ -12,7 +12,7 @@ class TransactionStatus {
   name: string;
 }
 
-@ObjectType({ description: 'transaction'})
+@ObjectType({ description: 'transaction' })
 export class Transaction {
   @Field()
   transactionExternalId: string;

@@ -11,6 +11,6 @@ export class AntifraudController {
   @EventPattern('create_transaction')
   handleTransactionCreate(@Payload() data: CreateTransactionDto) {
     let newStatus = this.antifraudService.validateTransaction(data);
-    this.antifraudService.emitValidation(data.transactionExternalId, newStatus)
+    this.antifraudService.emitValidation(data.transactionExternalId, newStatus);
   }
 }

@@ -1,10 +1,15 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  PrimaryGeneratedColumn,
+  CreateDateColumn,
+} from 'typeorm';
 import { Transaction as TransactionModel } from './transaction.model';
 
 export enum TransactionStatus {
-  PENDING = "pending",
-  APPROVED = "approved",
-  REJECTED = "rejected"
+  PENDING = 'pending',
+  APPROVED = 'approved',
+  REJECTED = 'rejected',
 }
 
 enum TransferType {
@@ -31,10 +36,10 @@ export class Transaction {
   value: number;
 
   @Column({
-    type: "enum",
+    type: 'enum',
     enum: TransactionStatus,
-    default: TransactionStatus.PENDING
-  }) 
+    default: TransactionStatus.PENDING,
+  })
   transactionStatus: string;
 
   @CreateDateColumn()
@@ -43,13 +48,13 @@ export class Transaction {
   getTransferTypeName(): string {
     switch (this.transferTypeId) {
       case TransferType.DEPOSIT:
-        return "DEPOSIT";
+        return 'DEPOSIT';
       case TransferType.WITHDRAWAL:
-        return "WITHDRAWAL";
+        return 'WITHDRAWAL';
       case TransferType.EXTERNAL:
-        return "TRANSFER";
+        return 'TRANSFER';
       default:
-        return "UNKNOWN";
+        return 'UNKNOWN';
     }
   }
 
@@ -63,9 +68,7 @@ export class Transaction {
         name: this.transactionStatus,
       },
       value: this.value,
-      createdAt: this.createdAt 
-    }
+      createdAt: this.createdAt,
+    };
   }
 }
-
-

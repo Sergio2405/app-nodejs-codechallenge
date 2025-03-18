@@ -1,4 +1,4 @@
 export class CreateTransactionDto {
-  transactionExternalId: string
-  value: number
+  transactionExternalId: string;
+  value: number;
 }
