@@ -12,7 +12,7 @@ import { AntifraudController } from './antifraud.controller';
         options: {
           client: {
             clientId: 'antifraud',
-            brokers: ['kafka:9092'],
+            brokers: [process.env.KAFKA_BROKER || 'localhost:9092'],
           },
           consumer: {
             groupId: 'antifraud-consumer',
